@@ -1,0 +1,101 @@
+{% group %}
+
+    {% block %}
+        {% client %}I (hate|like|love) school(.*){% endclient %}
+        {% response %}Are you feeling stressed out at school?{% endresponse %}
+    {% endblock %}
+
+    {% block %}
+        {% client %}\(Yes|yes|no|No\)(.*)((I|i) (do not )?(feel stressed)( at school)?(\.)?)?{% endclient %}
+        {% prev %}Are you feeling stressed out at school{% endprev %}
+        {% response %}{% if {%low %0 %} == Yes | {%low %0 %} == yes %}Do you feel that these school-related factors are negatively affecting your mental health in noticeable and/or consuming ways?{% else %}That's great to hear. Are you facing difficulties with any other stressors?{% endif %}{% endresponse %}
+    {% endblock %}
+
+    {% block %}
+        {% client %}\(Yes|yes|no|No\)(.*){% endclient %}
+        {% prev %}Do you feel that these school-related factors are negatively affecting your mental health in noticeable and/or consuming ways?{% endprev %}
+        {% response %}{% if {%low %0 %} == Yes | {%low %0 %} == yes %}Do you feel that this negative effect has more to do with stress and/or anxiety or sadness/depression?{% else %}Are these school related factors moderately affecting your health in slightly noticeable and infrequent ways?{% endif %}{% endresponse %}
+    {% endblock %}
+
+    {% block %}
+        {% client %}\(Yes|yes|no|No\)(.*){% endclient %}
+        {% prev %}Do you feel that this negative effect has more to do with stress and/or anxiety or sadness/depression?{% endprev %}
+        {% response %}{% if {%low %0 %} == Yes | {%low %0 %} == yes %}I recommend finding a trusted adult you can open up to. You can try calling kids help phone at 1-800-668-6868{% else %}I recommend finding a trusted adult you can open up to. You can try calling kids help phone at 1-800-668-6868{% endif %}{% endresponse %}-
+    {% endblock %}
+
+    {% block %}
+        {% client %}\(Yes|yes|no|No\)(.*){% endclient %}
+        {% prev %}Are these school related factors moderately affecting your health in slightly noticeable and infrequent ways?{% endprev %}
+        {% response %}{% if {%low %0 %} == Yes | {%low %0 %} == yes %}I recommend finding a trusted adult you can open up to. You can try calling kids help phone at 1-800-668-6868{% else %}Do you believe that this toll on your mental health is caused primarily by problems?{% endif %}{% endresponse %}
+    {% endblock %}
+
+    {% block %}
+        {% client %}\(Yes|yes|no|No\)(.*){% endclient %}
+        {% prev %}Do you believe that this toll on your mental health is caused primarily by problems?{% endprev %}
+        {% response %}{% if {%low %0 %} == Yes | {%low %0 %} == yes %}I recommend finding a trusted adult you can open up to. You can try calling kids help phone at 1-800-668-6868{% else %}I recommend finding a trusted adult you can open up to. You can try calling kids help phone at 1-800-668-6868{% endif %}{% endresponse %}
+    {% endblock %}
+
+    {% block %}
+        {% client %}\(Yes|yes|no|No\)(.*){% endclient %}
+        {% prev %}That's great to hear. Are you facing difficulties with any other stressors?{% endprev %}
+        {% response %}{% if {%low %0 %} == Yes | {%low %0 %} == yes %}I recommend finding a trusted adult you can open up to. You can try calling kids help phone at 1-800-668-6868{% else %}{% call end_session: %}{% endif %}{% endresponse %}
+    {% endblock %}
+
+
+
+
+    {% block %}
+        {% client %}(.*)stress(.*){% endclient %}        
+        {% response %}Do you feel that you have a stable support system in your life?{% endresponse %}
+    {% endblock %}
+
+    {% block %}
+        {% client %}\(Yes|yes|no|No\)(.*){% endclient %}
+        {% prev %}Do you feel that you have a stable support system in your life?{% endprev %}
+        {% response %}{% if {%low %0 %} == Yes | {%low %0 %} == yes %}Glad to hear that :){% call end_session: %}{% else %}Do you feel a lack of support from your friends and family?{% endif %}{% endresponse %}
+    {% endblock %}
+
+    {% block %}
+        {% client %}\(Yes|yes|no|No\)(.*){% endclient %}
+        {% prev %}Do you feel a lack of support from your friends and family?{% endprev %}
+        {% response %}{% if {%low %0 %} == Yes | {%low %0 %} == yes %}Do you have conflicted relationships with friends or family that you feel may end?{% else %}Do you feel unsupported by a teacher(s), employer(s), or a significant other?{% endif %}{% endresponse %}
+    {% endblock %}
+
+    {% block %}
+        {% client %}\(Yes|yes|no|No\)(.*){% endclient %}
+        {% prev %}Do you have conflicted relationships with friends or family that you feel may end?{% endprev %}
+        {% response %}{% if {%low %0 %} == Yes | {%low %0 %} == yes %}I recommend finding a trusted adult you can open up to. You can try calling kids help phone at 1-800-668-6868{% else %}I recommend finding a trusted adult you can open up to. You can try calling kids help phone at 1-800-668-6868{% endif %}{% endresponse %}
+    {% endblock %}
+
+    {% block %}
+        {% client %}\(Yes|yes|no|No\)(.*){% endclient %}
+        {% prev %}Do you feel unsupported by a teacher(s), employer(s), or a significant other?{% endprev %}
+        {% response %}{% if {%low %0 %} == Yes | {%low %0 %} == yes %}I recommend finding a trusted adult you can open up to. You can try calling kids help phone at 1-800-668-6868{% else %}I recommend finding a trusted adult you can open up to. You can try calling kids help phone at 1-800-668-6868{% endif %}{% endresponse %}
+    {% endblock %}
+
+
+
+    {% block %}
+        {% client %}(.*)bored(.*){% endclient %}
+        {% response %}Do you feel lost or are craving a sense of direction?{% endresponse %}
+    {% endblock %}
+
+    {% block %}
+        {% client %}\(Yes|yes|no|No\)(.*){% endclient %}
+        {% prev %}Do you feel lost or are craving a sense of direction?{% endprev %}
+        {% response %}{% if {%low %0 %} == Yes | {%low %0 %} == yes %}Is the urge to find direction and/or purpose caused by a recent loss?{% else %}Good to know, would you like to explore some more?{% endif %}{% endresponse %}
+    {% endblock %}
+
+    {% block %}
+        {% client %}\(Yes|yes|no|No\)(.*){% endclient %}
+        {% prev %}Is the urge to find direction and/or purpose caused by a recent loss?{% endprev %}
+        {% response %}{% if {%low %0 %} == Yes | {%low %0 %} == yes %}I recommend finding a trusted adult you can open up to. You can try calling kids help phone at 1-800-668-6868{% else %}I recommend finding a trusted adult you can open up to. You can try calling kids help phone at 1-800-668-6868{% endif %}{% endresponse %}
+    {% endblock %}
+
+    {% block %}
+        {% client %}\(Yes|yes|no|No\)(.*){% endclient %}
+        {% prev %}Good to know, would you like to explore some more {% endprev %}
+        {% response %}{% if {%low %0 %} == Yes | {%low %0 %} == yes %}I recommend finding a trusted adult you can open up to. You can try calling kids help phone at 1-800-668-6868{% else %}I recommend finding a trusted adult you can open up to. You can try calling kids help phone at 1-800-668-6868{% endif %}{% endresponse %}
+    {% endblock %}
+
+{% endgroup %}
